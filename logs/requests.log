@@ -1,0 +1,10 @@
+{
+  "test": "Happy flow - create new barrel",
+  "payload": {
+    "id": "barrel-1756318868121",
+    "qr": "QR123",
+    "rfid": "RFID123",
+    "nfc": "NFC123"
+  }
+}
+

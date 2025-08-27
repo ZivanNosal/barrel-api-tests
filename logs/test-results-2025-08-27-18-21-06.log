@@ -1,0 +1,27 @@
+FAIL tests/barrels.test.js
+  Barrel API
+    × Happy flow - create new barrel (214 ms)
+    √ Negative flow - create barrel with empty id (33 ms)
+
+  ● Barrel API › Happy flow - create new barrel
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 400
+
+    [0m [90m 28 |[39m     [36mconst[39m response [33m=[39m [36mawait[39m client[33m.[39mpost([32m"/barrels"[39m[33m,[39m payload)[33m;[39m
+     [90m 29 |[39m
+    [31m[1m>[22m[39m[90m 30 |[39m     expect(response[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m    |[39m                             [31m[1m^[22m[39m
+     [90m 31 |[39m     expect(response[33m.[39mdata)[33m.[39mtoHaveProperty([32m"id"[39m)[33m;[39m
+     [90m 32 |[39m     expect(response[33m.[39mdata[33m.[39mid)[33m.[39mtoBe(payload[33m.[39mid)[33m;[39m
+     [90m 33 |[39m   })[33m;[39m[0m
+
+      at Object.toBe (tests/barrels.test.js:30:29)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        0.637 s, estimated 1 s
+Ran all test suites.

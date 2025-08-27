@@ -19,6 +19,12 @@ describe("Barrel API", () => {
       nfc: "NFC123"
     };
 
+    // log requestu
+    const fs = require('fs');
+    fs.appendFileSync('logs/requests.log', JSON.stringify({
+      test: 'Happy flow - create new barrel',
+      payload
+    }, null, 2) + '\n\n');
     const response = await client.post("/barrels", payload);
 
     expect(response.status).toBe(201);
