@@ -1,3 +1,7 @@
+/*
+"test": "jest --runInBand",
+"test:log": "node -e \"const fs = require('fs'); const { spawnSync } = require('child_process'); const logDir = 'logs'; if (!fs.existsSync(logDir)) fs.mkdirSync(logDir); const ts = new Date().toISOString().replace(/[:T]/g,'-').split('.')[0]; const logFile = `${logDir}/test-results-${ts}.log`; const out = spawnSync('npx', ['jest', '--runInBand'], { stdio: ['ignore','pipe','pipe'], shell: true }); fs.writeFileSync(logFile, out.stdout + out.stderr); process.stdout.write(out.stdout + out.stderr);\""
+*/
 const axios = require("axios");
 require("dotenv").config();
 

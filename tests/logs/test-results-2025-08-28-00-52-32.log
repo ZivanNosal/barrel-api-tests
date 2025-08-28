@@ -1,0 +1,108 @@
+--- Create Barrel ---
+REQUEST: {
+  "id": "d4d94b11-b1ac-4ab5-b3b4-4caac2236a70",
+  "barrel": "Test Barrel 1756342352074",
+  "qr": "QR-1756342352074",
+  "rfid": "RFID-1756342352074",
+  "nfc": "NFC-1756342352074"
+}
+STATUS: 201
+RESPONSE: {
+  "id": "d4d94b11-b1ac-4ab5-b3b4-4caac2236a70",
+  "qr": "QR-1756342352074",
+  "rfid": "RFID-1756342352074",
+  "nfc": "NFC-1756342352074"
+}
+--- END ---
+
+--- Get All Barrels ---
+STATUS: 200
+--- END ---
+
+--- Get Barrel Detail ---
+REQUEST: {
+  "url": "https://to-barrel-monitor.azurewebsites.net/barrels/d4d94b11-b1ac-4ab5-b3b4-4caac2236a70"
+}
+STATUS: 500
+RESPONSE: ""
+--- END ---
+
+--- Negative Create Barrel ---
+REQUEST: {
+  "id": "55e4bb3e-69c5-4f08-ad4a-835a93c7fa70",
+  "barrel": "Missing Codes Barrel"
+}
+STATUS: 400
+RESPONSE: {
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Qr": [
+      "The Qr field is required."
+    ],
+    "Nfc": [
+      "The Nfc field is required."
+    ],
+    "Rfid": [
+      "The Rfid field is required."
+    ]
+  },
+  "traceId": "00-90d2d6dc36f55e3410b710bdb74c0626-011b670ac6f6372e-00"
+}
+--- END ---
+
+--- Delete Barrel ---
+REQUEST: {
+  "url": "https://to-barrel-monitor.azurewebsites.net/barrels/d4d94b11-b1ac-4ab5-b3b4-4caac2236a70"
+}
+STATUS: 500
+RESPONSE: ""
+--- END ---
+
+--- Create Measurement ---
+REQUEST: {
+  "id": "87be43f0-b32c-4b32-a0ad-f7253e414ec6",
+  "barrel": "Test Barrel 1756342353541",
+  "impurityLevel": 0.02,
+  "measuredAt": "2025-08-28T00:52:33.541Z"
+}
+STATUS: 400
+RESPONSE: {
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Barrel": [
+      "The Barrel field is required."
+    ]
+  },
+  "traceId": "00-93f12f778f0f381aeb1826723273c492-cb434949472cafe7-00"
+}
+--- END ---
+
+--- Get All Measurements ---
+STATUS: 200
+RESPONSE: []
+--- END ---
+
+--- Negative Create Measurement ---
+REQUEST: {
+  "id": "bde2ff8a-bf4a-4ef1-a6a6-02dde3a132c3",
+  "impurityLevel": 0.05,
+  "measuredAt": "2025-08-28T00:52:33.612Z"
+}
+STATUS: 400
+RESPONSE: {
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Barrel": [
+      "The Barrel field is required."
+    ]
+  },
+  "traceId": "00-6075f2bf38e460193e4614e11da6673e-58e47e879ccd37d2-00"
+}
+--- END ---
+

@@ -1,0 +1,104 @@
+--- Create Barrel ---
+REQUEST: {
+  "id": "c0bbe0b3-868d-4583-90f5-bd446894ec3f",
+  "barrel": "Test Barrel 1756340823527",
+  "qr": "QR-1756340823527",
+  "rfid": "RFID-1756340823527",
+  "nfc": "NFC-1756340823527"
+}
+STATUS: 201
+RESPONSE: {
+  "id": "c0bbe0b3-868d-4583-90f5-bd446894ec3f",
+  "qr": "QR-1756340823527",
+  "rfid": "RFID-1756340823527",
+  "nfc": "NFC-1756340823527"
+}
+--- END ---
+
+--- Get All Barrels ---
+STATUS: 200
+--- END ---
+--- Get Barrel Detail ---
+STATUS: 500
+RESPONSE: ""
+--- END ---
+
+--- Negative Create Barrel ---
+REQUEST: {
+  "id": "d5cc1acb-424c-4e0a-8a5a-8cb02c1f8f4a",
+  "barrel": "Missing Codes Barrel"
+}
+STATUS: 400
+RESPONSE: {
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Qr": [
+      "The Qr field is required."
+    ],
+    "Nfc": [
+      "The Nfc field is required."
+    ],
+    "Rfid": [
+      "The Rfid field is required."
+    ]
+  },
+  "traceId": "00-1baab9b26d25d9652ccaea9986b8f4bd-1f3382a332a13a49-00"
+}
+--- END ---
+
+--- Delete Barrel ---
+REQUEST: {
+  "id": "c0bbe0b3-868d-4583-90f5-bd446894ec3f"
+}
+STATUS: 500
+RESPONSE: ""
+--- END ---
+
+--- Create Measurement ---
+REQUEST: {
+  "id": "fb796754-ed64-425e-9371-2cc7b0662a6d",
+  "barrelId": "53d57d12-50e9-42b1-ae4a-16709f85a693",
+  "impurityLevel": 0.02,
+  "measuredAt": "2025-08-28T00:27:05.055Z"
+}
+STATUS: 400
+RESPONSE: {
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Barrel": [
+      "The Barrel field is required."
+    ]
+  },
+  "traceId": "00-5df51d3714b5b3024b20557365b86065-f2b20969f9925b8d-00"
+}
+--- END ---
+
+--- Get All Measurements ---
+STATUS: 200
+RESPONSE: []
+--- END ---
+
+--- Negative Create Measurement ---
+REQUEST: {
+  "id": "efa0ec55-c7cf-4a3c-a318-e6346010ac14",
+  "impurityLevel": 0.05,
+  "measuredAt": "2025-08-28T00:27:05.123Z"
+}
+STATUS: 400
+RESPONSE: {
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Barrel": [
+      "The Barrel field is required."
+    ]
+  },
+  "traceId": "00-ae7492b9dfe4479dbc7ea3a7ef3dceb4-e473f145fca7752b-00"
+}
+--- END ---
+

@@ -10,10 +10,11 @@ Automatizované testy pro Barrel API (`https://to-barrel-monitor.azurewebsites.n
 ## Spuštění
 ```bash
 npm install
-
+npm install uuid
 npm test
 npm run test:log
 npx jest --testNamePattern="Happy flow"
+npm run test:barrels
 
 ```
 
