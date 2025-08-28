@@ -1,4 +1,3 @@
-// tests/barrel-api.spec.js
 const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
@@ -7,14 +6,14 @@ const path = require("path");
 const API_URL = "https://to-barrel-monitor.azurewebsites.net";
 let createdBarrel = null;
 
-// vytvoření složky logs, pokud neexistuje
+// folder logs is created if it doesn´t exist
 const logsDir = path.join(__dirname, "logs");
 if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir);
 
 const ts = new Date().toISOString().replace(/[:T]/g, "-").split(".")[0];
 const logFile = path.join(logsDir, `test-results-${ts}.log`);
 
-// helper pro logování request + response
+// helper to log request + response
 function logRequestResponse(testName, reqData, res, options = {}) {
   let logEntry;
   if (options.minimal) {
@@ -33,7 +32,7 @@ function logRequestResponse(testName, reqData, res, options = {}) {
   fs.appendFileSync(logFile, logEntry + "\n");
 }
 
-// axios wrapper → nezpůsobuje chybu pro HTTP >=400
+// axios wrapper for HTTP >=400 - does not throw error
 async function safeRequest(config) {
   const cfg = { validateStatus: () => true, ...config };
   return axios(cfg);
@@ -123,7 +122,7 @@ describe("Measurements API", () => {
   it("Add measurement to barrel (POST /measurements)", async () => {
     const payload = {
       id: uuidv4(),
-      barrel: "Test Barrel " + Date.now(), // nebo createdBarrel.id podle Swaggeru
+      barrel: "Test Barrel " + Date.now(),
       impurityLevel: 0.02,
       measuredAt: new Date().toISOString()
     };

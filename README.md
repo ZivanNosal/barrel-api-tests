@@ -1,23 +1,36 @@
 # Barrel API Tests
 
-Automatizované testy pro Barrel API (`https://to-barrel-monitor.azurewebsites.net`).
+Automation tests for Barrel API (`https://to-barrel-monitor.azurewebsites.net`).
 
-## Použitý stack
+## Stack
+
 - **Jest** – test runner
 - **Axios** – HTTP klient
 - **dotenv** – konfigurace BASE_URL
 
-## Spuštění
+## Run
+
 ```bash
 npm install
 npm install uuid
-npm test
-npm run test:log
-npx jest --testNamePattern="Happy flow"
+
 npm run test:barrels
+
+npm test
+npx jest --testNamePattern="Happy flow"
 
 ```
 
-## Test scénáře
-1. **Happy flow** – vytvoření barelu s validními daty → 201 Created
-2. **Negative flow** – vytvoření barelu s prázdným `id` → 400 Bad Request
+## Test cases
+
+Barrels:
+    Happy flow - create new barrel (POST /barrels)
+    Get all barrels (GET /barrels)
+    Get barrel detail (GET /barrels/{id})
+    Negative: Create barrel without QR/NFC/RFID → 400
+    Delete barrel (DELETE /barrels/{id})
+
+Measurements:
+    Add measurement to barrel (POST /measurements)
+    Get all measurements (GET /measurements)
+    Negative: Create measurement without barrel → 400
