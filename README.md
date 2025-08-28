@@ -24,6 +24,7 @@ npx jest --testNamePattern="Happy flow"
 ## Test cases
 
 Barrels:
+
     - Happy flow - create new barrel (POST /barrels)
     - Get all barrels (GET /barrels)
     - Get barrel detail (GET /barrels/{id})
@@ -31,6 +32,7 @@ Barrels:
     - Delete barrel (DELETE /barrels/{id})
 
 Measurements:
+
     - Add measurement to barrel (POST /measurements)
     - Get all measurements (GET /measurements)
     - Negative: Create measurement without barrel → 400
